@@ -21,6 +21,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerPolicies(
+            [
+                'App\Models\Doc' => 'App\Policies\DocPolicy',
+            ]
+        );
     }
 }

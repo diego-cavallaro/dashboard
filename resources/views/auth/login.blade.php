@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ url('images/logo/fsc.png') }}" />
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -16,8 +16,8 @@
             @csrf
 
             <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-label for="nickName" value="{{ __('nickName') }}" />
+                <x-input id="nickName" class="block mt-1 w-full" type="text" name="nickName" :value="old('nickName')" required autofocus autocomplete="nickName" />
             </div>
 
             <div class="mt-4">
