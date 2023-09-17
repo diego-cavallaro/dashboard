@@ -15,12 +15,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::truncate();
         User::truncate();
 
-        $adminRole =  Role::create(['name'=>'Administrator']);
-        $userRole =  Role::create(['name'=>'User']);
-            
             $admin = new User;  
                             
             $admin->name = 'administrador';
@@ -30,7 +26,6 @@ class UserTableSeeder extends Seeder
             $admin->password = '$2y$10$nR1SB1dJoD5pL3WZlOqWBOiB75Z..1kfdzikH1iNjH2xyMmum84K.';
             $admin->save();
 
-            $admin->assignRole($adminRole);
 
             $users = new User;  
                             
@@ -40,7 +35,5 @@ class UserTableSeeder extends Seeder
             $users->email_verified_at =  NOW() ;
             $users->password = bcrypt('123123');
             $users->save();
-
-            $users->assignRole($userRole);
     }
 }

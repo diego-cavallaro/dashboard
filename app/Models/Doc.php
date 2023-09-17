@@ -41,4 +41,13 @@ class Doc extends Model
                     ->where('public', '=', 1)                    // 
                     ->latest('published_at');                    //ordena de mas nuevo a mas viejo
         }
+
+    public function scopeAllowed($query)
+        {
+            if( auth()->user()->can('view', $this))
+                {
+                    return $query;
+                }
+            return $query->where('user_id', auth()->id());
+        }
 }

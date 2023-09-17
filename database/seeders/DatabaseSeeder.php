@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $this->call(UserTableSeeder::class);
-        $this->call(UserTableSeeder::class);
-        $this->call(AreaTableSeeder::class);
+        $this->call (UserTableSeeder::class);
+        $this->call (AreaTableSeeder::class);
         $this->call (TagTableSeeder::class);
         $this->call (DocTableSeeder::class);
-
+        $this->call (PermissionTableSeeder::class);
+        $this->call (RoleTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

@@ -9,6 +9,15 @@ use Illuminate\Auth\Access\Response;
 
 class DocPolicy
 {
+    public function before($user)
+    {
+        // si hasRole "tiene el rol" devielve verdadero y puede hacer siempre cualquier accion
+        // si no continua con el resto, no devolver false si no cumple porque no se ejecutarian el resto de funcioness
+        if( $user->hasRole('siteAdminRole'))
+        {
+            return true;
+        }
+    }
     /**
      * Determine whether the user can view any models.
      */
@@ -22,7 +31,8 @@ class DocPolicy
      */
     public function view(User $user, Doc $doc): bool
     {
-        return $user->id === $doc->user_id;
+        return $user->id === $doc->user_id
+                    || $user->hasRole('docViewRole');
     }
 
     /**
@@ -30,7 +40,7 @@ class DocPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**

@@ -23,13 +23,12 @@ class DocsController extends Controller
 
     public function list()
         {
-            {
-                $docs = Doc::where('published_at', '<=', carbon::now())
+            $docs = Doc::Allowed()->get();
+/*                 $docs = Doc::where('published_at', '<=', carbon::now())
                             ->latest('published_at')                    
-                            ->get();
+                            ->get(); */
         
                 return view ('docs.list', compact('docs'));
-            }
         }
     
     public function edit(Doc $doc)
@@ -42,6 +41,7 @@ class DocsController extends Controller
     
     public function store(Request $request)
         {
+            $this->authorize('create', new Doc);
             $this->validate($request, 
                 [
                     'title' => 'required'
@@ -110,4 +110,5 @@ class DocsController extends Controller
             $docs=$tag->Doc()->simplePaginate(3);
             return view ('docs.index', compact('docs'));
         }
+
 }

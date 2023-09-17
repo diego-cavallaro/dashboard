@@ -18,18 +18,19 @@
                     <div class="card-body">
 
                         <div class="float-right">
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"> Nuevo Documento </button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"> Nuevo Documento </button>                            
                         </div>
 
                         <table id='doc'class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                             <th>Título</th>
-                            <th>Área</th>
-                            <th>Publicado</th>
-                            <th>Modificado</th>
-                            <th>Autor</th>
-                            <th>Acción</th>
+                            <th style='text-align:center'>Área</th>
+                            <th style='text-align:center'>Publicado</th>
+                            <th style='text-align:center'>Modificado</th>
+                            <th style='text-align:center'>Ambito</th>
+                            <th style='text-align:center'>Autor</th>
+                            <th style='text-align:center'>Acción</th>
                         </tr>
                         </thead>
 
@@ -37,11 +38,12 @@
                         @foreach($docs as $doc)
                         <tr>
                             <td>{{$doc->title}}</td>
-                            <td>{{$doc->area->name}}</td>
-                            <td>{{ Carbon\Carbon::parse($doc->published_at)->format('m-Y') }}</td>
-                            <td>{{ Carbon\Carbon::parse($doc->update_at)->format('m-Y') }}</td>
-                            <td>{{$doc->user->name}}</td>
-                            <td>
+                            <td style='text-align:center'>{{$doc->area->name}}</td>
+                            <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->published_at)->format('m-Y') }}</td>
+                            <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->update_at)->format('m-Y') }}</td>
+                            <td style='text-align:center'>{{$doc->public}}</td>
+                            <td style='text-align:center'>{{$doc->user->name}}</td>
+                            <td style='text-align:center'> 
                                 <a href ="edit/{{$doc->url}}" class="btn btn-xs btn-info"> Editar </a>
                                 <form method="POST" action="{{ route('docs.destroy', $doc)}}" style="display: inline">
                                     {{csrf_field()}} {{method_field('DELETE')}}

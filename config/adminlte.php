@@ -315,16 +315,36 @@ return [
             'text' => 'Publicaciones',
             'url'  => 'dashboard',
             'label'=> 0,
-            //'can'  => 'manage-blog',
+            'can'  => 'dashboard',
         ],
         [
             'text'    => 'Herramientas',
             'icon'    => 'fas fa-fw fa-tools',
+            //'can'    => 'manage-blog',
             'submenu' => [
                 [
                     'text' => 'Documentos',
                     'url'  => 'docs/list',
-                    //'can'  => 'viewAny-doc',
+                    //'can'  => ['add-blog-post', 'other-right'],
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Certificados',
+            'icon'    => 'fas fa-fw fa-file',
+            //'can' => 'Certificados-Read',
+            'submenu' => [
+                [
+                    'text' => 'Calidad',
+                    'url'  => 'Certificados/Show/1',
+                ],
+                [
+                    'text' => 'Dureza',
+                    'url'  => 'Certificados/Show/2',
+                ],
+                [
+                    'text' => 'Metalografía',
+                    'url'  => 'Certificados/Show/3',
                 ],
             ],
         ],
@@ -334,6 +354,25 @@ return [
             'text' => 'profile',
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
+        ],
+
+        ['header' => 'OPCIONES ADMINISTRADOR'],        
+        [
+            'text'    => 'Administrar',
+            'icon'    => 'fas fa-users',
+            //'can'  => 'siteAdmin',            
+            'submenu' => [
+                [
+                    'text' => 'Usuarios',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-user-check',
+                ],
+                [
+                    'text' => 'Permisos',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-id-card',
+                ],
+            ],
         ],
 /*         [
             'text' => 'change_password',
