@@ -315,7 +315,7 @@ return [
             'text' => 'Publicaciones',
             'url'  => 'dashboard',
             'label'=> 0,
-            'can'  => 'dashboard',
+            //'can'  => 'dashboard',
         ],
         [
             'text'    => 'Herramientas',
