@@ -244,14 +244,21 @@ function procesarCargaDato($certificadoConfigDet, $paramCollection)
     if($certificadoConfigDet->TipoDato != null && $certificadoConfigDet->TipoDato->ID == 5)
     {
         $html = "<label for='".$certificadoConfigDet->REFERENCIA."'>".$etiqueta."</label>
-                <input type='".$controlTipo."' class='".$class."' id='".$certificadoConfigDet->REFERENCIA."' name='".$name."' accept='image/*'
-                onchange=\"updatePreview(this, '".$certificadoConfigDet->REFERENCIA."_IMG')\"/>
-                <img id='".$certificadoConfigDet->REFERENCIA."_IMG' style='width: 100px; height: 100px'>";
+            <input type='".$controlTipo."' class='".$class."' id='".$certificadoConfigDet->REFERENCIA."' name='".$name."' accept='image/*'
+            onchange=\"updatePreview(this, '".$certificadoConfigDet->REFERENCIA."_IMG')\"/>
+            <img id='".$certificadoConfigDet->REFERENCIA."_IMG' style='width: 100px; height: 100px'>";
+    }
+    //Si el control es del tipo TextArea
+    else if($certificadoConfigDet->TipoDato != null && $certificadoConfigDet->TipoDato->ID == 6)
+    {
+        $html = "<label for='".$certificadoConfigDet->REFERENCIA."'>".$etiqueta."</label>
+        <textarea  id='".$certificadoConfigDet->REFERENCIA."' name='".$certificadoConfigDet->REFERENCIA."' 
+        class='".$class."'></textarea>";
     }
     else
     {
         $html = "<label for='".$certificadoConfigDet->REFERENCIA."'>".$etiqueta."</label>
-        <input ".$step." type='".$controlTipo."' class='".$class."' id='".$certificadoConfigDet->REFERENCIA.
+            <input ".$step." type='".$controlTipo."' class='".$class."' id='".$certificadoConfigDet->REFERENCIA.
             "' name='".$name."' value='".$value."' ".$disabled." ".$checked." ".$unidadMedida." ".$functionJs." ".$customData."/>";
     }
 
@@ -349,6 +356,13 @@ function procesarEdicionDato($certificadoDet)
         onchange=\"updatePreview(this, '".$certificadoConfigDet->REFERENCIA."_IMG')\"/>
         <img id='".$certificadoConfigDet->REFERENCIA."_IMG' style='width: 100px; height: 100px'
         src='".$carpeta.$value."'>";
+    }
+    //Si el control es del tipo TextArea
+    else if($certificadoConfigDet->TipoDato != null && $certificadoConfigDet->TipoDato->ID == 6)
+    {
+        $html = "<label for='".$certificadoConfigDet->REFERENCIA."'>".$etiqueta."</label>
+        <textarea  id='".$certificadoConfigDet->REFERENCIA."' name='".$certificadoConfigDet->REFERENCIA."' 
+        class='".$class."'>".$value."</textarea>";
     }
     else
     {

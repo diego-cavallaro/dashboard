@@ -1,4 +1,4 @@
-use ProcesoPlanta
+use [ProcesoPlanta-Test]
 GO
 
 delete FROM [dbo].[CERTIFICADO_DET]
