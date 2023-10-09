@@ -20,15 +20,11 @@ class PermissionTableSeeder extends Seeder
         $docView        =  Permission::create(['name'=>'docView']);
         $docCreate      =  Permission::create(['name'=>'docCreate']);
         $docDelete      =  Permission::create(['name'=>'docDelete']);
-        $docViewAll     =  Permission::create(['name'=>'docViewAll']);
-        $docDeleteAll   =  Permission::create(['name'=>'docDeleteAll']);
 
         $siteUser       ->save();
         $viewProfile    ->save();
         $docView        ->save();
         $docCreate      ->save();
         $docDelete      ->save();
-        $docViewAll     ->save();
-        $docDeleteAll   ->save();
     }
 }

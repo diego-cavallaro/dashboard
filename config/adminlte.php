@@ -315,8 +315,9 @@ return [
             'text' => 'Publicaciones',
             'url'  => 'dashboard',
             'label'=> 0,
-            'can'  => 'dashboard',
+            //'can'  => 'dashboard',
         ],
+
         [
             'text'    => 'Herramientas',
             'icon'    => 'fas fa-fw fa-tools',
@@ -364,7 +365,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Usuarios',
-                    'url'  => '#',
+                    'url'  => 'users/index',
                     'icon'    => 'fas fa-user-check',
                 ],
                 [

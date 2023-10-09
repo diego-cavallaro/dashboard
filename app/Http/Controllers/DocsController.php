@@ -33,7 +33,7 @@ class DocsController extends Controller
     
     public function edit(Doc $doc)
         {
-            $this->authorize('view', $doc);
+            $this->authorize('update', $doc);
             $tags = Tag::all();
             $areas = Area::all();
             return view('docs.edit', compact('doc','tags', 'areas'));
@@ -110,5 +110,12 @@ class DocsController extends Controller
             $docs=$tag->Doc()->simplePaginate(3);
             return view ('docs.index', compact('docs'));
         }
-
+    public function MSsqlpdo()
+        {
+            return view ('test.sqlpdo');
+        }
+    public function MSsqldrv()
+        {
+            return view ('test.sqlpdo');
+        }
 }

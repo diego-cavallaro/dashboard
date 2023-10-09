@@ -27,12 +27,12 @@ class DocPolicy
     }
 
     /**
-     * Determine whether the user can view the model.
+     * compara si es el creador del doc o tiene permiso para ... 
      */
     public function view(User $user, Doc $doc): bool
     {
         return $user->id === $doc->user_id
-                    || $user->hasRole('docViewRole');
+            || $user->hasPermissionTo('docView');
     }
 
     /**
@@ -40,7 +40,7 @@ class DocPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('docCreate');
     }
 
     /**
@@ -57,6 +57,7 @@ class DocPolicy
     public function delete(User $user, Doc $doc): bool
     {
         return $user->id === $doc->user_id;
+            //|| $user->hasPermissionTo('docDelete');
     }
 
     /**
