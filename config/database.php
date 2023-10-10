@@ -93,6 +93,35 @@ return [
             'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'DashBoard' => [
+            'driver' => 'sqlsrv',
+            'url' => env('SQLSRV1'),
+            'host' => env('DB_HOST', '10.6.100.7'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'encrypt' => 'yes',
+            'trust_server_certificate' => 'true',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
+
+        'ProcesoPlanta' => [
+            'driver' => 'sqlsrv',
+            'url' => env('SQLSRV1\FSCApps'),
+            'host' => env('DB_HOST2', 'SQLSRV1\FSCApps'),
+            'port' => env('DB_PORT2', '50014'),
+            'database' => env('DB_DATABASE2', ''),
+            'username' => env('DB_USERNAME2', ''),
+            'password' => env('DB_PASSWORD2', ''),
+            'charset' => 'utf8',
+            'encrypt' => 'yes',
+            'trust_server_certificate' => 'true',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],        
     ],
 
     /*

@@ -1,0 +1,6 @@
+1 - Agregar el Visto Bueno al certificado a los fines de Cerrarlo. (Ok)
+2 - Al dar VB, cerrar y mandar a visualizar el PDF. Permitiendo la descarga. (Ok)
+3 - Permiso para editar un certificado con VB. Algun jefe. (Ok)
+4 - Quitar N° de Parte en el Certificado.
+5 - Ver de pasar la etiqueta "Dimensions" a pulgada si se paso todo a pulgadas. (Ok)
+6 - Despues de la coma, las cotas MAXIMO 4 digitos en pulgadas, 3 en mm (Ok)
