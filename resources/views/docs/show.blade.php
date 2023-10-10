@@ -30,7 +30,7 @@
                 <br>
                     
                 <div class="card-footer text-muted float-right">
-                    <div class="float-right">Publicado : {{$doc->published_at->format('d-m-Y')}}</div>
+                    <div class="float-right">Publicado : {{ Carbon\Carbon::parse($doc->published)->format('d-m-Y') }}</div>
                 </div>
             </div>
         </div>

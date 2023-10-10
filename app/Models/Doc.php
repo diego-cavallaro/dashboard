@@ -26,12 +26,12 @@ class Doc extends Model
 
     public function tags()
         {
-            return $this->belongsToMany(tag::class); //pertenece a muchos
+            return $this->belongsToMany(Tag::class); //pertenece a muchos
         }
 
     public function user()
         {
-            return $this->belongsTo(User::class); //cada doc pertenece a Autor y solo uno
+            return $this->belongsTo(User::class); //cada doc pertenece a un Autor y solo uno
         }
 
     public function scopePublic($query)

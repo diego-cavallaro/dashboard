@@ -43,7 +43,6 @@ class RoleTableSeeder extends Seeder
 
         $siteUserRole->givePermissionTo('login','viewProfile');
 
-        $docAdminRole->givePermissionTo('docViewAll','docDeleteAll');
         $docUserRole ->givePermissionTo('docView','docCreate','docDelete');
         $docViewRole ->givePermissionTo('docView');
     }
