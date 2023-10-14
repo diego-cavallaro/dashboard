@@ -321,12 +321,12 @@ return [
         [
             'text'    => 'Herramientas',
             'icon'    => 'fas fa-fw fa-tools',
-            //'can'    => 'manage-blog',
+            'can'    => 'manage-blog',
             'submenu' => [
                 [
                     'text' => 'Documentos',
                     'url'  => 'docs/list',
-                    //'can'  => ['add-blog-post', 'other-right'],
+                    'can'  => ['add-blog-post', 'other-right'],
                 ],
             ],
         ],
@@ -361,7 +361,7 @@ return [
         [
             'text'    => 'Administrar',
             'icon'    => 'fas fa-users',
-            //'can'  => 'siteAdmin',            
+            'can'  => 'siteAdmin',            
             'submenu' => [
                 [
                     'text' => 'Usuarios',

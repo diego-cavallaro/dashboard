@@ -23,7 +23,7 @@ Route::middleware
                     Route::put('/docs/store', [DocsController::class, 'store'])->name('docs.store');
                     Route::put('/docs/update/{doc}', [DocsController::class, 'update'])->name('docs.update');
                     Route::delete('/docs/destroy/{doc}', [DocsController::class, 'destroy'])->name('docs.destroy');
-                    Route::get('/test/sqlpdo', [DocsController::class, 'MSsqlpdo'])->name('test.sqlpdo');
-                    Route::get('/test/sqldrv', [DocsController::class, 'MSsqldrv'])->name('test.sqldrv');
+                    //Route::get('/test/sqlpdo', [DocsController::class, 'MSsqlpdo'])->name('test.sqlpdo');
+                    //Route::get('/test/sqldrv', [DocsController::class, 'MSsqldrv'])->name('test.sqldrv');
                 }
         );
