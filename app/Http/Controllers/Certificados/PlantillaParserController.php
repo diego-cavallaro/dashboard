@@ -156,11 +156,11 @@ class PlantillaParserController extends Controller
                     if (!file_exists($carpeta.$anio)) {
                         mkdir($carpeta.$anio, 0777, true);
                     }
-                    if (!file_exists($carpeta.$anio.'/'.$mes)) {
-                        mkdir($carpeta.$anio.'/'.$mes, 0777, true);
+                    if (!file_exists($carpeta.$anio.'\\'.$mes)) {
+                        mkdir($carpeta.$anio.'\\'.$mes, 0777, true);
                     }
-                    if (!file_exists($carpeta.$anio.'/'.$mes.'/'.$numeroCertificado)) {
-                        mkdir($carpeta.$anio.'/'.$mes.'/'.$numeroCertificado, 0777, true);
+                    if (!file_exists($carpeta.$anio.'\\'.$mes.'\\'.$numeroCertificado)) {
+                        mkdir($carpeta.$anio.'\\'.$mes.'\\'.$numeroCertificado, 0777, true);
                     }
                 
                     $referencia = Arr::get($param, 'Parametro');
@@ -313,7 +313,7 @@ class PlantillaParserController extends Controller
                                 $anio = $fechaInsert->year;
                                 $mes = $fechaInsert->format('m');
                                 //Ejemplo: '2023\08\20230822154474\'
-                                $subCarpeta = $anio."/".$mes."/".$numeroCertificado."/";
+                                $subCarpeta = $anio."\\".$mes."\\".$numeroCertificado."\\";
                             }
 
                             //Movemos el archivo a la carpeta destino
