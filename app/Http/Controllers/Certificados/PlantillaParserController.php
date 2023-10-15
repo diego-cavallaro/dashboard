@@ -165,16 +165,17 @@ class PlantillaParserController extends Controller
                 
                     $referencia = Arr::get($param, 'Parametro');
                     if($request[$referencia] != null)
-                    {
+                    
                         $nombreArchivo = $request[$referencia]->getClientOriginalName();
 
                         //Ejemplo: '2023\08\20230822154474\'
-                        $subCarpeta = Str::replace("'", "", $anio."'\'".$mes."'\'".$numeroCertificado."'\'");
+                        //$subCarpeta = Str::replace("'", "", $anio."'\'".$mes."'\'".$numeroCertificado."'\'");
+                        $subCarpeta = $anio.'\\'.$mes.'\\'.$numeroCertificado.'\\';
                         //Movemos el archivo a la carpeta destino
                         $request[$referencia]->move($carpeta.$subCarpeta, $nombreArchivo);
                         //Ejemplo: '2023/08/20230822154474/MiImagen.jpg'
                         $valor = $anio."/".$mes."/".$numeroCertificado."/".$nombreArchivo;
-                    }
+                    
                 }
                 else
                 {
