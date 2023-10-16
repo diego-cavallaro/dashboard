@@ -58,19 +58,19 @@ return [
 
         'planos' => [
             'driver' => 'local',
-            'root' => public_path('Certificados\Planos'),
+            'root' => public_path('Certificados/Planos'),
             'url' => env('APP_URL').env('PUBLIC_URL').'/Certificados/Planos',
             'visibility' => 'public',
         ],
         'imagenes' => [
             'driver' => 'local',
-            'root' => public_path('Certificados\Imagenes'),
+            'root' => public_path('Certificados/Imagenes'),
             'url' => env('APP_URL').env('PUBLIC_URL').'/Certificados/Imagenes',
             'visibility' => 'public',
         ],
         'ensayos' => [
             'driver' => 'local',
-            'root' => public_path('Certificados\Ensayos'),
+            'root' => public_path('Certificados/Ensayos'),
             'url' => env('APP_URL').env('PUBLIC_URL').'/Certificados/Ensayos',
             'visibility' => 'public',
         ],
