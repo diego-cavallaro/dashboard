@@ -15,8 +15,13 @@ class StoreCoquilla extends FormRequest
     public function rules(): array
     {
        return[
-          'Coquilla' => ['required', 'min:5', 'max:15'],
+          'Coquilla' => ['required', 
+                         'min:5', 
+                        'max:15',
+                         Rule::unique('Visual.SHOP_RESOURCE', 'ID'),
+                        ],
           'Fecha' => 'required',
+
        ];
     }
 }
