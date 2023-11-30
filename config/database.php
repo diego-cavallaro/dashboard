@@ -121,7 +121,22 @@ return [
             'trust_server_certificate' => 'true',
             'prefix' => '',
             'prefix_indexes' => true,
-        ],        
+        ],
+
+        'Visual' => [
+            'driver' => 'sqlsrv',
+            'url' => env('VM-Pruebas.server1.fsc.corp'),
+            'host' => env('DB_HOST3', 'VM'),
+            'port' => env('DB_PORT3', '1433'),
+            'database' => env('DB_DATABASE3', ''),
+            'username' => env('DB_USERNAME3', ''),
+            'password' => env('DB_PASSWORD3', ''),
+            'charset' => 'utf8',
+            'encrypt' => 'yes',
+            'trust_server_certificate' => 'true',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
     ],
 
     /*
