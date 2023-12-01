@@ -331,6 +331,25 @@ return [
             ],
         ],
         [
+            'text'    => 'PPCP',
+            'icon'    => 'fas fa-fw fa-file',
+            //'can' => 'Coquillas-Read',
+            'submenu' => [
+                [
+                    'text' => 'Grupos',
+                    'url'  => 'Grupos/Show/',
+                ],
+                [
+                    'text' => 'Coquillas',
+                    'url'  => 'Coquillas/Show',
+                ],
+                // [
+                //     'text' => 'Metalografía',
+                //     'url'  => 'Certificados/Show/3',
+                // ],
+            ],
+        ],
+        [
             'text'    => 'Certificados',
             'icon'    => 'fas fa-fw fa-file',
             //'can' => 'Certificados-Read',
