@@ -43,8 +43,16 @@ class GrupoController extends Controller
             $shopResource->SCHEDULE_NORMALLY = "Y";
             $shopResource->AUTO_REPORTING = "N";
             $shopResource->TYPE = "G";
-            //Averiguar esto porque: Para "Programar Todo" = "I". Para "Programar Uno" = "X"
-            $shopResource->EXCLUSIVITY = "X";
+            //Para "Programar Todo" = "I". Para "Programar Uno" = "X"
+            if($request->post('programar') === "1")
+            {
+                $shopResource->EXCLUSIVITY = "X";
+            }
+            else
+            {
+                $shopResource->EXCLUSIVITY = "I";
+            }
+
             $shopResource->save();
             DB::commit();
         } catch (\Exception $e) {
@@ -72,6 +80,15 @@ class GrupoController extends Controller
 
             $shopResource = ShopResource::find($resoureId);
             $shopResource->DESCRIPTION = $request->post('Descripcion');
+            //Para "Programar Todo" = "I". Para "Programar Uno" = "X"
+            if($request->post('programar') === "1")
+            {
+                $shopResource->EXCLUSIVITY = "X";
+            }
+            else
+            {
+                $shopResource->EXCLUSIVITY = "I";
+            }
             $shopResource->save();
 
             DB::commit();

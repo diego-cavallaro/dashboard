@@ -25,9 +25,6 @@
                         <label for="Coquilla">Coquilla</label>
                         <input type='text' class='form-control' id='Coquilla' name='Coquilla' 
                             onkeyup='goMayuscula(this);' value="{{old('Coquilla')}}" />
-                        @error('Coquilla')
-                            <span style="color: red">{{ $message }}</span>
-                        @enderror
                      </div>
                     <div class="form-group col-md-2">
                         <label for="EstadoCoquilla">Estado</label>
@@ -53,10 +50,17 @@
                      <div class="form-group col-md-2">
                         <label for="Fecha">Fecha Disponibilidad</label>
                         <input type='date' class='form-control' id='Fecha' name='Fecha' value="{{old('Fecha')}}">
-                        @error('Fecha')
-                          <span style="color: red">{{ $message }}</span>
-                        @enderror
                      </div>
+                </div>
+                <div class="row col-md-12">
+                    @error('Coquilla')
+                        <span style="color: red">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="row col-md-12">
+                    @error('Fecha')
+                      <span style="color: red">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="row">
                     <div class="form-group col-md-2">
