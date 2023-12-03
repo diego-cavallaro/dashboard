@@ -17,12 +17,13 @@
         <thead>
            <th>Id</th>
            <th>Descripcion</th>
+           <th>Programa</th>
            <th>Prog.Normal</th>
            <th>Auto Report</th>
            <th>Tipo</th>
-           <th>Shift 1</th>
+           {{-- <th>Shift 1</th>
            <th>Shift 2</th>
-           <th>Shift 3</th>
+           <th>Shift 3</th> --}}
            <th></th>
         </thead>
         <tbody>
@@ -30,12 +31,13 @@
               <tr>
                  <td>{{$grupoCoquilla->ID}}</td>
                  <td>{{$grupoCoquilla->DESCRIPTION}}</td>
+                 <td class="text-center">{{$grupoCoquilla->EXCLUSIVITY == "X" ? "Uno" : "Todo"}}</td>
                  <td class="text-center">{{$grupoCoquilla->SCHEDULE_NORMALLY == "Y" ? "Si" : "No"}}</td>
                  <td class="text-center">{{$grupoCoquilla->AUTO_REPORTING == "Y" ? "Si" : "No"}}</td>
                  <td class="text-center">{{$grupoCoquilla->TYPE}}</td>
-                 <td class="text-center">{{$grupoCoquilla->SHIFT_1_CAPACITY}}</td>
+                 {{-- <td class="text-center">{{$grupoCoquilla->SHIFT_1_CAPACITY}}</td>
                  <td class="text-center">{{$grupoCoquilla->SHIFT_2_CAPACITY}}</td>
-                 <td class="text-center">{{$grupoCoquilla->SHIFT_3_CAPACITY}}</td>
+                 <td class="text-center">{{$grupoCoquilla->SHIFT_3_CAPACITY}}</td> --}}
                  <td class="text-center">
                     <a href="{{ route('grupos.edit', $grupoCoquilla->ID) }}" class="btn btn-primary">
                         Editar

@@ -24,7 +24,17 @@
                 <div class="form-group col-md-6">
                     <label for="Descripcion">Descripción</label>
                     <input type='text' class='form-control' id='Descripcion' name='Descripcion' value="{{old('Descripcion', $grupo->DESCRIPTION)}}"/>
-                 </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                   <label for="ProgramaUno">Programa Uno</label>
+                   <input type="radio" id="ProgramaUno" name="programar" value="1" {{$grupo->EXCLUSIVITY === "X" ? 'checked' : ''}}/>
+                </div>
+                <div class="form-group col-md-2 align-middle">
+                   <label for="ProgramaTodos">Programa Todos</label>
+                   <input type="radio" id="ProgramaTodos" name="programar" value="0" {{$grupo->EXCLUSIVITY === "I" ? 'checked' : ''}} />
+                </div>
             </div>
         </div>
     </div>
