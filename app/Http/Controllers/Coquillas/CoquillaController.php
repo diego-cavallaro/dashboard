@@ -138,7 +138,7 @@ class CoquillaController extends Controller
             //-------
             $shopResource->USER_5 = Carbon::parse($request->post('Fecha'))->format('Ymd');
             $shopResource->USER_6 = ($request->input('ConCanal') == "on" ? "Si" : "No");
-            $shopResource->USER_6 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
+            $shopResource->USER_7 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
             //Mandamos a guardar el nuevo recurso a Visual
             $shopResource->save();
 
@@ -252,7 +252,7 @@ class CoquillaController extends Controller
             //-------
             $shopResource->USER_5 = Carbon::parse($request->post('Fecha'))->format('Ymd');
             $shopResource->USER_6 = ($request->input('ConCanal') == "on" ? "Si" : "No");
-            $shopResource->USER_6 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
+            $shopResource->USER_7 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
             $shopResource->save();
 
             DB::commit();
