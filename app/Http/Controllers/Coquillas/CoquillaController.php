@@ -21,7 +21,7 @@ class CoquillaController extends Controller
 {
     public function index()
     {
-       $coquillas=Coquilla::orderBy('RESOURCE_ID', 'asc')->get();
+       $coquillas=Coquilla::with('EstadoCoquilla')->orderBy('RESOURCE_ID', 'asc')->get();
 
        //-----------------------------------------------------------------
        $estadosCoquilla = EstadoCoquilla::orderBy('ID', 'asc')->get();
