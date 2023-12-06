@@ -55,6 +55,13 @@ class StoreGrupo extends FormRequest
                         "El código de Grupo comenzar con 'GC-', 'GS-', 'GT-', 'GQ-' o 'GE-'."
                     );
                 }
+              if(strpos($grupo, '/'))
+              {
+                $validator->errors()->add(
+                    'Grupo',
+                    "El código de Grupo no puede contener '/'."
+                );
+              }
             }
         ];
     }

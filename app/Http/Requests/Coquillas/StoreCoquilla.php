@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Coquillas;
 
+use App\Models\Coquillas\EstadoCoquilla;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 use Illuminate\Validation\Rule;
@@ -22,7 +23,7 @@ class StoreCoquilla extends FormRequest
                          Rule::unique('Visual.SHOP_RESOURCE', 'ID'),
                         ],
           'Fecha' => 'required',
-
+          'EstadoCoquilla' => 'required',
        ];
     }
 
@@ -31,6 +32,7 @@ class StoreCoquilla extends FormRequest
         return [
             function (Validator $validator) {
               $grupo = $validator->safe()->Coquilla;
+              $estadoCoquilla = $validator->safe()->EstadoCoquilla;
               $primerLetra =  substr($grupo, 0, 1);
   
               if($primerLetra !== 'W'){
@@ -40,6 +42,13 @@ class StoreCoquilla extends FormRequest
                         "El código de Coquilla debe comenzar con 'W'."
                     );
                 }
+              if($estadoCoquilla === "0")
+              {
+                $validator->errors()->add(
+                    'EstadoCoquilla',
+                    "Se debe seleccionar un Estado de Coquilla."
+                );
+              }
             }
         ];
     }
