@@ -62,6 +62,11 @@
                       <span style="color: red">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="row col-md-12">
+                    @error('EstadoCoquilla')
+                      <span style="color: red">{{ $message }}</span>
+                    @enderror
+                </div>
                 <div class="row">
                     <div class="form-group col-md-2">
                         <label for="ConAgujero">Con Agujero</label>
