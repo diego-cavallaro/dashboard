@@ -239,6 +239,9 @@ class CoquillaController extends Controller
             }
             $coquilla->ALTURA = $request->post('Altura');
             $coquilla->OBSERVACIONES =  $request->post('Observaciones');
+            //Para utilizar mas adelante
+            $fechaBase = Carbon::parse($coquilla->FECHA)->format('Ymd');
+            //--------------------------
             $coquilla->FECHA = Carbon::parse($request->post('Fecha'))->format('Ymd');
             $coquilla->CON_CANAL = ($request->input('ConCanal') === "on" ? 1 : 0);
             $coquilla->CON_AGUJERO = ($request->input('ConAgujero') === "on" ? 1 : 0);
@@ -270,12 +273,21 @@ class CoquillaController extends Controller
             $shopResource->USER_7 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
             $shopResource->save();
 
-            //Agregar la edicion de la excepcion de calendario
+            $calendarChange = CalendarChange::where('RESOURCE_ID', $request->post('resourceId'))->first();
+            //Si cambiaron la fecha de disponibilidad, aplicamos eso para la programación
+            if(Carbon::parse($request->post('Fecha'))->format('Ymd') !== $fechaBase)
+            {
+                $calendarChange->START_DATE = Carbon::today()->format('Ymd');
+                $calendarChange->END_DATE = Carbon::parse($request->post('Fecha'))->format('Ymd');
+                $calendarChange->START_OF_DAY = Carbon::today()->format('Ymd');
+                //Mandamos a guardar la excepcion de calendario
+                $calendarChange->save();
+            }
 
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            //dd($e);
+            dd($e);
             return redirect()->route('coquillas.show')->with("error","Error al intentar grabar");
         }
         return redirect()->route('coquillas.show')->with("success","Agregado con éxito");
