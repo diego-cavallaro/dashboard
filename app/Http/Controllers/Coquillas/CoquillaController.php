@@ -13,6 +13,7 @@ use App\Models\Coquillas\ShopResource;
 use App\Models\Coquillas\ShopGroup;
 use App\Models\Coquillas\CalendarWeek;
 use App\Models\Coquillas\CalendarChange;
+use App\Models\Coquillas\ShopResourceSite;
 
 use App\Http\Requests\Coquillas\StoreCoquilla;
 use App\Http\Requests\Coquillas\UpdateCoquilla;
@@ -120,7 +121,8 @@ class CoquillaController extends Controller
             //--------- Creamos el nuevo recurso para Visual Manufacturing ---------
             $shopResource = new ShopResource();
             $shopResource->ID = $request->post('Coquilla');
-            $shopResource->DESCRIPTION = "";
+            $shopResource->DESCRIPTION = $request->post('Observaciones');
+            $shopResource->SCHEDULE_TYPE = 0;
             $shopResource->SCHEDULE_NORMALLY = "Y";
             $shopResource->AUTO_REPORTING = "N";
             $shopResource->TYPE = "I";
@@ -148,10 +150,11 @@ class CoquillaController extends Controller
                 $calendarWeek = new CalendarWeek();
                 $calendarWeek->RESOURCE_ID = $request->post('Coquilla');
                 $calendarWeek->DAY_OF_WEEK = $i;
-                $calendarWeek->START_OF_DAY = new Carbon('1899-12-30 00:00:00');
+                $calendarWeek->START_OF_DAY = Carbon::today()->format('Ymd');
                 $calendarWeek->SHIFT_1 = 8;
                 $calendarWeek->SHIFT_2 = 8;
                 $calendarWeek->SHIFT_3 = 8;
+                $calendarWeek->SITE_ID = 'FSC';
                 //Mandamos a guardar la disponibilidad de la semana
                 $calendarWeek->save();
             }
@@ -162,23 +165,34 @@ class CoquillaController extends Controller
                 $calendarChange = new CalendarChange();
                 $calendarChange->SCHEDULE_ID = null;
                 $calendarChange->RESOURCE_ID = $request->post('Coquilla');
-                $calendarChange->START_DATE = Carbon::now()->format('Ymd H:i:s');
+                $calendarChange->START_DATE = Carbon::today()->format('Ymd');
                 $calendarChange->END_DATE = Carbon::parse($request->post('Fecha'))->format('Ymd');
-                $calendarChange->START_OF_DAY = Carbon::now()->format('Ymd H:i:s');
+                $calendarChange->START_OF_DAY = Carbon::today()->format('Ymd');
                 $calendarChange->SHIFT_1 = 0;
                 $calendarChange->SHIFT_2 = 0;
                 $calendarChange->SHIFT_3 = 0;
                 $calendarChange->SHIFT_1_CAPACITY = 0;
                 $calendarChange->SHIFT_2_CAPACITY = 0;
                 $calendarChange->SHIFT_3_CAPACITY = 0;
+                $calendarChange->SITE_ID = 'FSC';
                 //Mandamos a guardar la excepcion de calendario
                 $calendarChange->save();
             }
 
+            //--------- Creamos el nuevo recurso asociado a la empresa FSC ---------
+            $shopResourceSite = new ShopResourceSite();
+            $shopResourceSite->SITE_ID = 'FSC';
+            $shopResourceSite->RESOURCE_ID = $request->post('Coquilla');
+            $shopResourceSite->SHIFT_1_CAPACITY = 1;
+            $shopResourceSite->SHIFT_2_CAPACITY = 1;
+            $shopResourceSite->SHIFT_3_CAPACITY = 1;
+            //Mandamos a Guardar la sociacion
+            $shopResourceSite->save();
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            dd($e);
+            // dd($e);
             return redirect()->route('coquillas.show')->with("error","Error al intentar grabar");
         }
         return redirect()->route('coquillas.show')->with("success","Agregado con éxito");
@@ -225,6 +239,9 @@ class CoquillaController extends Controller
             }
             $coquilla->ALTURA = $request->post('Altura');
             $coquilla->OBSERVACIONES =  $request->post('Observaciones');
+            //Para utilizar mas adelante
+            $fechaBase = Carbon::parse($coquilla->FECHA)->format('Ymd');
+            //--------------------------
             $coquilla->FECHA = Carbon::parse($request->post('Fecha'))->format('Ymd');
             $coquilla->CON_CANAL = ($request->input('ConCanal') === "on" ? 1 : 0);
             $coquilla->CON_AGUJERO = ($request->input('ConAgujero') === "on" ? 1 : 0);
@@ -239,6 +256,7 @@ class CoquillaController extends Controller
 
             //Actualizamos el recurso en Visual Manufacturing
             $shopResource = ShopResource::find($resoureId);
+            $shopResource->DESCRIPTION = $request->post('Observaciones');
             //----------------- Campos USER ------------------
             $shopResource->USER_1 = $request->post('Diametro1');
             $shopResource->USER_2 = $request->post('Diametro2');
@@ -255,10 +273,21 @@ class CoquillaController extends Controller
             $shopResource->USER_7 = ($request->input('ConAgujero') == "on" ? "Si" : "No");
             $shopResource->save();
 
+            $calendarChange = CalendarChange::where('RESOURCE_ID', $request->post('resourceId'))->first();
+            //Si cambiaron la fecha de disponibilidad, aplicamos eso para la programación
+            if(Carbon::parse($request->post('Fecha'))->format('Ymd') !== $fechaBase)
+            {
+                $calendarChange->START_DATE = Carbon::today()->format('Ymd');
+                $calendarChange->END_DATE = Carbon::parse($request->post('Fecha'))->format('Ymd');
+                $calendarChange->START_OF_DAY = Carbon::today()->format('Ymd');
+                //Mandamos a guardar la excepcion de calendario
+                $calendarChange->save();
+            }
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            //dd($e);
+            dd($e);
             return redirect()->route('coquillas.show')->with("error","Error al intentar grabar");
         }
         return redirect()->route('coquillas.show')->with("success","Agregado con éxito");

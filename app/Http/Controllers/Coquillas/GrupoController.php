@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Coquillas\ShopResource;
+use App\Models\Coquillas\ShopResourceSite;
 use App\Http\Requests\Coquillas\StoreGrupo;
 use App\Http\Requests\Coquillas\UpdateGrupo;
 
@@ -52,8 +53,18 @@ class GrupoController extends Controller
             {
                 $shopResource->EXCLUSIVITY = "I";
             }
-
             $shopResource->save();
+
+            //--------- Creamos el nuevo recurso asociado a la empresa FSC ---------
+            $shopResourceSite = new ShopResourceSite();
+            $shopResourceSite->SITE_ID = 'FSC';
+            $shopResourceSite->RESOURCE_ID = $request->post('Grupo');
+            $shopResourceSite->SHIFT_1_CAPACITY = 0;
+            $shopResourceSite->SHIFT_2_CAPACITY = 0;
+            $shopResourceSite->SHIFT_3_CAPACITY = 0;
+            //Mandamos a Guardar la sociacion
+            $shopResourceSite->save();
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
