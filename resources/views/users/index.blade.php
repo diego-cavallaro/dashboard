@@ -20,6 +20,7 @@
                         <table id='user'class="table table-sm table-bordered table-hover table-striped">
                         <thead>
                         <tr>
+                        <div class="row row-sm">
                             <th>Nombre</th>
                             <th style='text-align:center'>Alias</th>
                             <th style='text-align:center'>Email</th>
@@ -48,7 +49,7 @@
                             
                         @endforeach
                         </tbody>
-
+</div>
                         </table>
                     </div>
                 </div>

@@ -26,5 +26,15 @@ class PermissionTableSeeder extends Seeder
         $docView        ->save();
         $docCreate      ->save();
         $docDelete      ->save();
+
+        $userView       =  Permission::create(['name'=>'userView']);
+        $userUpdate     =  Permission::create(['name'=>'userUpdate']);
+        $userEnable     =  Permission::create(['name'=>'userEnable']);
+        $userDisable    =  Permission::create(['name'=>'userDisable']);
+
+        $userView       ->save();
+        $userUpdate     ->save();
+        $userEnable     ->save();
+        $userDisable    ->save();
     }
 }

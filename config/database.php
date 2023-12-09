@@ -93,19 +93,19 @@ return [
             'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'DashBoard' => [
+        'Visual' => [
             'driver' => 'sqlsrv',
-            'url' => env('SQLSRV1'),
-            'host' => env('DB_HOST', '10.6.100.7'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', ''),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST_VM', 'localhost'),
+            'port' => env('DB_PORT_VM', '1433'),
+            'database' => env('DB_DATABASE_VM', 'forge'),
+            'username' => env('DB_USERNAME_VM', 'forge'),
+            'password' => env('DB_PASSWORD_VM', ''),
             'charset' => 'utf8',
-            'encrypt' => 'yes',
-            'trust_server_certificate' => 'true',
             'prefix' => '',
             'prefix_indexes' => true,
+            'encrypt' => env('DB_ENCRYPT', 'yes'),
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
         'ProcesoPlanta' => [

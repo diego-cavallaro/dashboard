@@ -23,7 +23,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies(
             [
-                'App\Models\Doc' => 'App\Policies\DocPolicy',
+                'App\Models\User' => 'App\Policies\UserPolicy',
+                'App\Models\Doc'  => 'App\Policies\DocPolicy',                
             ]
         );
     }

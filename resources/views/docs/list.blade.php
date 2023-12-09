@@ -35,24 +35,23 @@
                         </thead>
 
                         <tbody>
-                        @foreach($docs as $doc)
-                        <tr>
-                            <td>{{$doc->title}}</td>
-                            <td style='text-align:center'>{{$doc->area->name}}</td>
-                            <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->published_at)->format('m-Y') }}</td>
-                            <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->update_at)->format('m-Y') }}</td>
-                            <td style='text-align:center'>{{$doc->public}}</td>
-                            <td style='text-align:center'>{{$doc->user->name}}</td>
-                            <td style='text-align:center'> 
-                                <a href ="edit/{{$doc->url}}" class="btn btn-xs btn-info"> Editar </a>
-                                <form method="POST" action="{{ route('docs.destroy', $doc)}}" style="display: inline">
-                                    {{csrf_field()}} {{method_field('DELETE')}}
-                                    <button class="btn btn-xs btn-danger"> Eliminar </button>
-                                </form>
-                            </td>
-                        </tr>
-                            
-                        @endforeach
+                            @foreach($docs as $doc)
+                                <tr>
+                                    <td>{{$doc->title}}</td>
+                                    <td style='text-align:center'>{{$doc->area->name}}</td>
+                                    <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->published_at)->format('m-Y') }}</td>
+                                    <td style='text-align:center'>{{ Carbon\Carbon::parse($doc->update_at)->format('m-Y') }}</td>
+                                    <td style='text-align:center'>{{$doc->public}}</td>
+                                    <td style='text-align:center'>{{$doc->user->name}}</td>
+                                    <td style='text-align:center'> 
+                                        <a href ="edit/{{$doc->url}}" class="btn btn-xs btn-info"> Editar </a>
+                                        <form method="POST" action="{{ route('docs.destroy', $doc)}}" style="display: inline">
+                                            {{csrf_field()}} {{method_field('DELETE')}}
+                                            <button class="btn btn-xs btn-danger"> Eliminar </button>
+                                        </form>
+                                    </td>
+                                </tr>                            
+                            @endforeach
                         </tbody>
 
                         </table>
