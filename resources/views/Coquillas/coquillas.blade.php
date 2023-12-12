@@ -24,11 +24,11 @@
             {{--------------------------------------------------------------------------------------------}}
             <div class="form-group col-md-2">
                <label for="ConAgujero">Con Agujero</label>
-               <input type="checkbox" name="ConAgujero" id="ConAgujero" {{$conAgujero == 1 ? 'checked' : ''}}>
+               <input type="checkbox" name="ConAgujero" id="ConAgujero" {{$conAgujero == 1 ? 'checked' : ''}} onclick="checkConAgujero()">
             </div>
             <div class="form-group col-md-2">
                <label for="ConCanal">Con Canal</label>
-               <input type="checkbox" name="ConCanal" id="ConCanal" {{$conCanal == 1 ? 'checked' : ''}}>
+               <input type="checkbox" name="ConCanal" id="ConCanal" {{$conCanal == 1 ? 'checked' : ''}} onclick="checkConCanal()">
             </div>
             <div class="form-group col-md-6 text-right">
                <a href="{{ route('coquillas.create') }}" class="btn btn-primary">
@@ -139,6 +139,16 @@
        $("#btnRefrescar").click(); 
     })
    });
+
+   function checkConAgujero()
+   {
+      $("#ConCanal").prop("checked", false);
+   }
+
+   function checkConCanal()
+   {
+      $("#ConAgujero").prop("checked", false);
+   }
 
  </script>
 @endsection
