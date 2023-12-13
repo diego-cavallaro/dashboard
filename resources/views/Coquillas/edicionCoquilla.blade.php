@@ -37,23 +37,30 @@
                                 {{-- {{dd($coquilla->FECHA);}} --}}
                                 <label for="Fecha">Fecha Disponibilidad</label>
                                 <input type='date' class='form-control' id='Fecha' name='Fecha' value="{{old('Fecha', Carbon\Carbon::parse($coquilla->FECHA)->format("Y-m-d"))}}">
-                                @error('Fecha')
-                                <span style="color: red">{{ $message }}</span>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            @error('Fecha')
+                               <span style="color: red">{{ $message }}</span>
+                            @enderror
+                            <div class="row col-md-12">
+                                @error('EstadoCoquilla')
+                                  <span style="color: red">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="Diametro1">Diametro 1</label>
-                                <input type='number' class='form-control' id='Diametro1' name='Diametro1' value='{{number_format(old('Diametro1', $coquilla->DIAMETRO1), 2)}}'/>
+                                <input type='number' class='form-control' id='Diametro1' name='Diametro1' value='{{number_format($coquilla->DIAMETRO1, 2)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="Diametro2">Diametro 2</label>
-                                <input type='number' class='form-control' id='Diametro2' name='Diametro2' value='{{number_format(old('Diametro2', $coquilla->DIAMETRO2), 2)}}'/>
+                                <input type='number' class='form-control' id='Diametro2' name='Diametro2' value='{{number_format($coquilla->DIAMETRO2, 2)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="Altura">Altura</label>
-                                <input type='number' class='form-control' id='Altura' name='Altura' value='{{number_format(old('Altura', $coquilla->ALTURA), 2)}}'>
+                                <input type='number' class='form-control' id='Altura' name='Altura' value='{{number_format($coquilla->ALTURA, 2)}}'>
                              </div>
                         </div>
                         <div class="row">

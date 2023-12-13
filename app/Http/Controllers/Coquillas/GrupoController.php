@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Coquillas\ShopResource;
+use App\Models\Coquillas\CalendarWeek;
 use App\Models\Coquillas\ShopResourceSite;
 use App\Http\Requests\Coquillas\StoreGrupo;
 use App\Http\Requests\Coquillas\UpdateGrupo;
@@ -64,6 +65,21 @@ class GrupoController extends Controller
             $shopResourceSite->SHIFT_3_CAPACITY = 0;
             //Mandamos a Guardar la sociacion
             $shopResourceSite->save();
+
+            //--------- Armamos la disponibilidad del recurso para la semana ---------
+            for ($i = 0; $i < 7; $i++)
+            {
+                $calendarWeek = new CalendarWeek();
+                $calendarWeek->RESOURCE_ID = $request->post('Grupo');
+                $calendarWeek->DAY_OF_WEEK = $i;
+                $calendarWeek->START_OF_DAY = Carbon::today()->format('Ymd');
+                $calendarWeek->SHIFT_1 = 8;
+                $calendarWeek->SHIFT_2 = 8;
+                $calendarWeek->SHIFT_3 = 8;
+                $calendarWeek->SITE_ID = 'FSC';
+                //Mandamos a guardar la disponibilidad de la semana
+                $calendarWeek->save();
+            }
 
             DB::commit();
         } catch (\Exception $e) {
