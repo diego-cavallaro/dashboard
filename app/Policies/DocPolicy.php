@@ -11,7 +11,7 @@ class DocPolicy
 {
     public function before($user)
     {
-        // si hasRole "tiene el rol" devielve verdadero y puede hacer siempre cualquier accion
+        // si hasRole "tiene el rol" devuelve verdadero y puede hacer siempre cualquier accion
         // si no continua con el resto, no devolver false si no cumple porque no se ejecutarian el resto de funcioness
         if( $user->hasRole('siteAdminRole'))
         {

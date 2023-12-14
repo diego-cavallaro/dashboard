@@ -23,17 +23,21 @@ class UserTableSeeder extends Seeder
             $admin->nickName = 'admin';
             $admin->email =  'administrador@fscnet.com.ar';
             $admin->email_verified_at =  NOW() ;
-            $admin->password = '$2y$10$nR1SB1dJoD5pL3WZlOqWBOiB75Z..1kfdzikH1iNjH2xyMmum84K.';
+            $admin->password = bcrypt('dashboard');;
+            $admin->legajo = '1';
+            $admin->enable = true;
             $admin->save();
 
 
             $users = new User;  
                             
-            $users->name = 'user1';
-            $users->nickName = 'user1';
+            $users->name = 'Test1';
+            $users->nickName = 'User1';
             $users->email =  'd.cavallaro@fscnet.com.ar';
             $users->email_verified_at =  NOW() ;
-            $users->password = bcrypt('123123');
+            $users->password = bcrypt('dashboard');
+            $users->legajo = 123;
+            $users->enable = true;
             $users->save();
     }
 }
