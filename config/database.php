@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 return [
 
-    /*
+    /*NUEVO
     |--------------------------------------------------------------------------
     | Default Database Connection Name
     |--------------------------------------------------------------------------
@@ -63,49 +63,19 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'search_path' => 'public',
-            'sslmode' => 'prefer',
-        ],
-
-        'sqlsrv' => [
+        'Visual' => [
             'driver' => 'sqlsrv',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'encrypt' => env('DB_ENCRYPT', 'yes'),
-            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
-        ],
-
-        'DashBoard' => [
-            'driver' => 'sqlsrv',
-            'url' => env('SQLSRV1'),
-            'host' => env('DB_HOST', '10.6.100.7'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', ''),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => env('DATABASE_URL', ''),
+            'host' => env('DB_HOST_VM', ''),
+            'port' => env('DB_PORT_VM', '1433'),
+            'database' => env('DB_DATABASE_VM', 'forge'),
+            'username' => env('DB_USERNAME_VM', 'forge'),
+            'password' => env('DB_PASSWORD_VM', ''),
             'charset' => 'utf8',
             'encrypt' => 'yes',
             'trust_server_certificate' => 'true',
             'prefix' => '',
-            'prefix_indexes' => true,
+            'prefix_indexes' => 'true',
         ],
 
         'ProcesoPlanta' => [
@@ -120,22 +90,7 @@ return [
             'encrypt' => 'yes',
             'trust_server_certificate' => 'true',
             'prefix' => '',
-            'prefix_indexes' => true,
-        ],
-
-        'Visual' => [
-            'driver' => 'sqlsrv',
-            'url' => env('VM-Pruebas.server1.fsc.corp'),
-            'host' => env('DB_HOST3', 'VM'),
-            'port' => env('DB_PORT3', '1433'),
-            'database' => env('DB_DATABASE3', ''),
-            'username' => env('DB_USERNAME3', ''),
-            'password' => env('DB_PASSWORD3', ''),
-            'charset' => 'utf8',
-            'encrypt' => 'yes',
-            'trust_server_certificate' => 'true',
-            'prefix' => '',
-            'prefix_indexes' => true,
+            'prefix_indexes' => 'true',
         ],
     ],
 
