@@ -24,6 +24,7 @@ class StoreCoquilla extends FormRequest
                         ],
           'Fecha' => 'required',
           'EstadoCoquilla' => 'required',
+          'Observaciones' => 'max:200',
        ];
     }
 

@@ -19,6 +19,7 @@ class UpdateCoquilla extends FormRequest
        return[
           'Fecha' => 'required',
           'EstadoCoquilla' => 'required',
+          'Observaciones' => 'max:200',
        ];
     }
 
