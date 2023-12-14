@@ -52,15 +52,15 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="Diametro1">Diametro 1</label>
-                                <input type='number' class='form-control' id='Diametro1' name='Diametro1' value='{{number_format($coquilla->DIAMETRO1, 2)}}'/>
+                                <input type='number' class='form-control' id='Diametro1' name='Diametro1' value='{{old('Diametro1', $coquilla->DIAMETRO1)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="Diametro2">Diametro 2</label>
-                                <input type='number' class='form-control' id='Diametro2' name='Diametro2' value='{{number_format($coquilla->DIAMETRO2, 2)}}'/>
+                                <input type='number' class='form-control' id='Diametro2' name='Diametro2' value='{{old('Diametro2', $coquilla->DIAMETRO2)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="Altura">Altura</label>
-                                <input type='number' class='form-control' id='Altura' name='Altura' value='{{number_format($coquilla->ALTURA, 2)}}'>
+                                <input type='number' class='form-control' id='Altura' name='Altura' value='{{old('Altura', $coquilla->ALTURA)}}'>
                              </div>
                         </div>
                         <div class="row">
@@ -81,11 +81,11 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="Pista1">Pista 1</label>
-                                <input type='number' class='form-control' id='Pista1' name='Pista1' value='{{number_format(old('Pista1', $coquilla->PISTA1), 2)}}'/>
+                                <input type='number' class='form-control' id='Pista1' name='Pista1' value='{{old('Pista1', $coquilla->PISTA1)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="Pista2">Pista 2</label>
-                                <input type='number' class='form-control' id='Pista2' name='Pista2' value='{{number_format(old('Pista2', $coquilla->PISTA2), 2)}}'/>
+                                <input type='number' class='form-control' id='Pista2' name='Pista2' value='{{old('Pista2', $coquilla->PISTA2)}}'/>
                              </div>
                              <div class="form-group col-md-4">
                                 <label for="FechaEdicionPista">Fecha Pistas</label>
