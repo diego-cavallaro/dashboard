@@ -380,7 +380,7 @@ return [
         [
             'text'    => 'Administrar',
             'icon'    => 'fas fa-users',
-            'can'  => 'siteAdmin',            
+            //'can'  => 'siteAdmin',            
             'submenu' => [
                 [
                     'text' => 'Usuarios',
