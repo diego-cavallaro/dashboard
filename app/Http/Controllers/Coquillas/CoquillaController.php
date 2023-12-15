@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Coquillas;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -121,7 +122,12 @@ class CoquillaController extends Controller
             //--------- Creamos el nuevo recurso para Visual Manufacturing ---------
             $shopResource = new ShopResource();
             $shopResource->ID = $request->post('Coquilla');
-            $shopResource->DESCRIPTION = $request->post('Observaciones');
+            //--------------------------
+            $observaciones = '';
+            if(Str::length($request->post('Observaciones')) > 0)
+               $observaciones = Str::substr($request->post('Observaciones'), 0, 40);
+            $shopResource->DESCRIPTION = $observaciones;
+            //--------------------------
             $shopResource->SCHEDULE_TYPE = 0;
             $shopResource->SCHEDULE_NORMALLY = "Y";
             $shopResource->AUTO_REPORTING = "N";
@@ -256,7 +262,12 @@ class CoquillaController extends Controller
 
             //Actualizamos el recurso en Visual Manufacturing
             $shopResource = ShopResource::find($resoureId);
-            $shopResource->DESCRIPTION = $request->post('Observaciones');
+            //--------------------------
+            $observaciones = '';
+            if(Str::length($request->post('Observaciones')) > 0)
+               $observaciones = Str::substr($request->post('Observaciones'), 0, 40);
+            $shopResource->DESCRIPTION = $observaciones;
+            //--------------------------
             //----------------- Campos USER ------------------
             $shopResource->USER_1 = $request->post('Diametro1');
             $shopResource->USER_2 = $request->post('Diametro2');

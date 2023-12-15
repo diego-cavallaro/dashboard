@@ -131,7 +131,8 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="Observaciones">Observaciones</label>
-                    <textarea class='form-control' id='Observaciones' name='Observaciones'>{{old('Observaciones', $coquilla->OBSERVACIONES)}}</textarea>
+                    <textarea class='form-control' id='Observaciones' name='Observaciones'
+                        placeholder="En Visual solo se grabarán los primeros 40 caracteres.">{{old('Observaciones', $coquilla->OBSERVACIONES)}}</textarea>
                 </div>
             </div>
         </div>

@@ -96,7 +96,8 @@
                 <div class="row">
                     <div class="form-group col-md-10">
                         <label for="Observaciones">Observaciones</label>
-                        <textarea class='form-control' id='Observaciones' name='Observaciones'>{{old('Observaciones')}}</textarea>
+                        <textarea class='form-control' id='Observaciones' name='Observaciones'
+                            placeholder="En Visual solo se grabarán los primeros 40 caracteres.">{{old('Observaciones')}}</textarea>
                      </div>                     
                 </div>
             </div>
