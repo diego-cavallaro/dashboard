@@ -314,7 +314,7 @@ return [
         [
             'text' => 'Publicaciones',
             'url'  => 'dashboard',
-            'label'=> 0,
+            //'label'=> 0,
             //'can'  => 'dashboard',
         ],
 
@@ -331,44 +331,52 @@ return [
             ],
         ],
         [
-            'text'    => 'PPCP',
-            'icon'    => 'fas fa-fw fa-file',
-            //'can' => 'Coquillas-Read',
+            'text'    => 'PPyCP',
+            'icon'    => 'fas fa-tasks',
             'submenu' => [
                 [
-                    'text' => 'Grupos',
-                    'url'  => 'Grupos/Show/',
+                    'text'    => 'Herramentales',
+                    //'url'     => '#',
+                    //'can' => 'herramental',
+                    'submenu' => [
+                        [
+                            'text' => 'Grupos',
+                            'url'  => 'Grupos/Show/',
+                        ],
+                        [
+                            'text' => 'Coquillas',
+                            'url'  => 'Coquillas/Show',
+                        ],
+                    ],
                 ],
-                [
-                    'text' => 'Coquillas',
-                    'url'  => 'Coquillas/Show',
-                ],
-                // [
-                //     'text' => 'Metalografía',
-                //     'url'  => 'Certificados/Show/3',
-                // ],
             ],
         ],
         [
-            'text'    => 'Certificados',
-            'icon'    => 'fas fa-fw fa-file',
-            //'can' => 'Certificados-Read',
+            'text'    => 'Calidad',
+            'icon'    => 'fas fa-check',
             'submenu' => [
                 [
-                    'text' => 'Calidad',
-                    'url'  => 'Certificados/Show/1',
-                ],
-                [
-                    'text' => 'Dureza',
-                    'url'  => 'Certificados/Show/2',
-                ],
-                [
-                    'text' => 'Metalografía',
-                    'url'  => 'Certificados/Show/3',
+                    'text'    => 'Certificados',
+                    'icon'    => 'fas fa-fw fa-file',
+                    //'can' => 'Certificados-Read',
+                    'url'     => 'Certificados/Show/',
+                    'submenu' => [
+                        [
+                            'text' => 'Calidad',
+                            'url'  => 'Certificados/Show/1',
+                        ],
+                        [
+                            'text' => 'Dureza',
+                            'url'  => 'Certificados/Show/2',
+                        ],
+                        [
+                            'text' => 'Metalografía',
+                            'url'  => 'Certificados/Show/3',
+                        ],
+                    ],
                 ],
             ],
         ],
-
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -395,45 +403,26 @@ return [
             ],
         ],
 /*         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ], */
-        /* [
-            'text'    => 'multilevel',
+            'text'    => 'Level',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text'    => 'App',
+                    //'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
+                            'text' => 'SubApp',
                             'url'  => '#',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => 'SubApp',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text' => 'SubApp',
+                            'url'  => '#',
                         ],
                     ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
                 ],
             ],
         ], */

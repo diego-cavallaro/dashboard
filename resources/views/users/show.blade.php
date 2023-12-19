@@ -31,8 +31,6 @@
                   </li>
                   <li class="list-group-item">
                     <b>email</b> <a class="float-right">{{ $user->email }}</a>
-                    <br>
-                    <b>Verificado</b> <a class="float-right">{{ $user->email_verified_at->format('d-m-Y') }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Registrado</b> <a class="float-right">{{ $user->created_at->format('d-m-Y') }}</a>
