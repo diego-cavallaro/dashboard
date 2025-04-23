@@ -43,6 +43,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        //MYSQL Default
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -63,6 +64,23 @@ return [
             ]) : [],
         ],
 
+        //MSSQL server Default
+        'sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            //'encrypt' => env('DB_ENCRYPT', 'yes'),
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),
+        ],
+
+        //Default VM908
         'Visual' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL', ''),
@@ -78,11 +96,12 @@ return [
             'prefix_indexes' => 'true',
         ],
 
+        //Default ProcesPlanta
         'ProcesoPlanta' => [
             'driver' => 'sqlsrv',
-            'url' => env('SQLSRV1\FSCApps'),
-            'host' => env('DB_HOST2', 'SQLSRV1\FSCApps'),
-            'port' => env('DB_PORT2', '50014'),
+            'url' => env('DATABASE_URL', ''),
+            'host' => env('DB_HOST2', ''),
+            'port' => env('DB_PORT2', ''),
             'database' => env('DB_DATABASE2', ''),
             'username' => env('DB_USERNAME2', ''),
             'password' => env('DB_PASSWORD2', ''),
@@ -92,6 +111,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => 'true',
         ],
+
     ],
 
     /*
