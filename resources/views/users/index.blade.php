@@ -13,6 +13,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Lista Usuarios</h3>
+                        <br>
+                        <h4> Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</h4>
                     </div>
 
                     <div class="card-body">
