@@ -312,7 +312,7 @@ return [
             //'can'  => 'manage-blog',
         ], */
         [
-            'text' => 'Publicaciones',
+            'text' => 'Novedades',
             'url'  => 'dashboard',
             //'label'=> 0,
             //'can'  => 'dashboard',
