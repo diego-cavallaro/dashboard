@@ -1,0 +1,484 @@
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	 <style>
+		body{
+		  font-family: Arial;
+		}
+		@page {
+		  margin: 15px 25px;
+		}
+	 </style>
+   </head>
+   <body>
+		<TABLE width="100%" cellpadding="2" cellspacing="0">
+		   <TR>
+			  <TD>
+			     <img src="@RutaImagenes@/LogoFSC.jpg" alt="Logo" />
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="8881AC" style="font-size: 10">
+					<tr style="height: 15px;">
+					   <td bgcolor="5842C8" align="center">
+						  <strong>CERTIFICADO DE CALIDAD / QUALITY CERTIFICATE</strong>
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9">
+					<tr>
+					   <td width="25%"></td>
+					   <td width="25%"></td>
+					   <td width="25%" align="left">
+						  Fecha / Date :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>@FechaHoy</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%"></td>
+					   <td width="25%"></td>
+					   <td width="25%" align="left">
+						  Nº de Cilindro FSC / FSC Roll# :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>PIEZAS.PIEZA</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%"></td>
+					   <td width="25%"></td>
+					   <td width="25%" align="left">
+						  Nº Cliente / Customer # :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>CUSTOMER_ORDER.CUSTOMER_ID</strong>
+					   </td>
+					</tr>
+				 </table>
+			     <hr style="borderTop: 1px black;" />
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" border = "0" cellpadding="0" cellspacing="0" style="font-size: 9">
+					<tr>
+					   <td width="25%" align="left">
+						  Cliente / Customer :
+					   </td>
+					   <td width="25%" align="left" colspan="3">
+						  <strong>CUSTOMER.NAME</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  Orden de compra / Purchase Order # :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.OC_CLIENTE</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  Plano del cliente/ Drawing :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.PLCLIENTE Rev HR.REVCLIENTE</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  Dimensiones / Dimensions :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.DIAMETROTABLA x HR.LTABLA</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					   <td width="25%" align="left">
+						  
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  Material / Mate :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.TIPODEMATERIAL</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  Art. del Cliente / Cust. Code :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>PIEZAS.cliente</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  O/F Nº / O/R # :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.OF_FSC</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  Plano FSC / FSC Drawing :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.PLFSC Rev HR.REVFSC</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="25%" align="left">
+						  Aplicación/ Application :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.APLICACION</strong>
+					   </td>
+					   <td width="25%" align="left">
+						  Peso / Weight (Kg) :
+					   </td>
+					   <td width="25%" align="left">
+						  <strong>HR.PESOFINAL</strong>
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="8881AC" style="font-size: 9">
+					<tr>
+					   <td width="25%" colspan="2" align="left" bgcolor="ADA7CA">
+						  <strong>Análisis Quimico/Chemical Analysis (%)</strong>
+					   </td>
+					   <td width="25%" colspan="2" align="left" bgcolor="ADA7CA">
+						  <strong></strong>
+					   </td>
+					   <td width="25%" colspan="2" align="left" bgcolor="ADA7CA">
+						  <strong>Colada N° / Heat # :</strong>
+					   </td>
+					   <td width="25%" colspan="2" align="left" bgcolor="ADA7CA">
+						  <strong>PIEZAS.colada</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="12%" align="center">
+						  <strong>C</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>Si</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>S</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>P</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>Mn</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>Cr</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>Ni</strong>
+					   </td>
+					   <td width="12%" align="center">
+						  <strong>Mo</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td width="12%" align="center">
+						  PIEZAS.c_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.si_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.s_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.p_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.mn_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.cr_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.ni_final
+					   </td>
+					   <td width="12%" align="center">
+						  PIEZAS.mo_final
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="8881AC" style="font-size: 9">
+					<tr>
+					   <td bgcolor="ADA7CA" width="50%" colspan="4" align="left">
+						  <strong>Dureza/ Hardness</strong>
+					   </td>
+					   <td bgcolor="ADA7CA" width="50%" colspan="4" align="left">
+						  Dureza.Shore <strong>Shore</strong> Dureza.Brinell <strong>Brinell</strong> Dureza.Ld <strong>Ld</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					   <td width="12%" align="center">
+					      <strong>Tabla Bajo</strong><strong>Drag Body</strong> 
+					   </td>
+					   <td width="12%" align="center">
+					      <strong>Tabla Sobre </strong><strong>Cope Body</strong> 
+					   </td>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					   <td bgcolor="ADA7CA" width="12%" rowspan="2">
+					   </td>
+					</tr>
+					<tr>
+					   <td align="center">
+					      DUREZA_DESPACHO.TB_15
+					   </td>
+					   <td align="center">
+					      DUREZA_DESPACHO.TS_15
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="8881AC" style="font-size: 9">
+					<tr>
+					   <td bgcolor="ADA7CA" width="50%" colspan="5" align="left">
+						  <strong>Control Dimensional/ Dimensional Check</strong>
+					   </td>
+					   <td bgcolor="ADA7CA" width="50%" colspan="5" align="left">
+						  Dimension.MM <strong>mm</strong> Dimension.Inches <strong>inches</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td bgcolor="ADA7CA" width="10%" rowspan="3">
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C1</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota1@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C4</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota4@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C7</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota7@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C10</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota10@
+					   </td>
+					   <td bgcolor="ADA7CA" width="10%" rowspan="3">
+					   </td>
+					</tr>
+					<tr>
+					   <td width="10%" align="center">
+					      <strong>C2</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota2@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C5</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota5@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C8</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota8@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C11</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota11@
+					   </td>
+					</tr>
+					<tr>
+					   <td width="10%" align="center">
+					      <strong>C3</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota3@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C6</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota6@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C9</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota9@
+					   </td>
+					   <td width="10%" align="center">
+					      <strong>C12</strong>
+					   </td>
+					   <td width="10%" align="center">
+					      @Cota12@
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="8881AC" style="font-size: 9">
+					<tr>
+					   <td  align="center">
+					      <img src="@Plano@" alt="Plano" />
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+				 <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9">
+					<tr>
+					   <td  align="left">
+					      <strong>Observaciones</strong>
+					   </td>
+					</tr>
+					<tr>
+					   <td  align="left">
+					      TextoObservaciones
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD>
+			     <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9">
+					<tr>
+					   <td width="40%" align="left">
+						 <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="black" style="font-size: 9">
+							<tr>
+							   <td align="center">
+								  <strong>Certificado Nº / Cerfificate Number :</strong>
+							   </td>
+							</tr>
+							<tr>
+							   <td align="center">
+								  NumeroCertificado
+							   </td>
+							</tr>
+						 </table>
+					   </td>
+					   <td width="20%">
+					   </td>
+					   <td width="40%"align="center">
+						 <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9">
+							<tr>
+							   <td align="center">
+								  <img src="@RutaImagenes@/FirmaDiegoCuello.jpg" alt="Firma Diego Cuello" />
+							   </td>
+							</tr>
+							<tr>
+							   <td align="center">
+								  Diego Cuello
+							   </td>
+							</tr>
+							<tr>
+							   <td align="center">
+								  <strong>Jefe de calidad / Chieft Quality.</strong>
+							   </td>
+							</tr>
+							<tr>
+							   <td align="center">
+								  <strong>Gerencia de Calidad / Quality Management.</strong>
+							   </td>
+							</tr>
+						 </table>
+					   </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		   <TR>
+			  <TD align="left">
+			     <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 9">
+					<tr>
+					   <td align="left">
+					      Fundición San Cayetano S.A.
+			           </td>
+					</tr>
+					<tr>
+					   <td align="left">
+					      Luis Maria Drago y Melian (B1852NZJ)
+			           </td>
+					</tr>
+					<tr>
+					   <td align="left">
+					      Burzaco, Bs. As., Argentina
+			           </td>
+					</tr>
+					<tr>
+					   <td align="left">
+					      Tel (54-11) 4002-4002 / 4238-0341
+			           </td>
+					</tr>
+					<tr>
+					   <td align="left">
+					      www.fscnet.com.ar
+			           </td>
+					</tr>
+				 </table>
+			  </TD>
+		   </TR>
+		</TABLE>
+   </body>
+</html>
